@@ -45,9 +45,10 @@ Ces deux feuilles de calcul comportent un ensemble de colonnes obligatoires qui 
 | genre               | autre      | Autre                |
 | =================== | ========   | ==================== |
 | choices             |            |                      |
+
 Les colonnes que vous ajoutez à votre classeur Excel, qu'elles soient obligatoire ou optionnelles, peuvent apparaitre dans n'importe quel ordre. Les colonnes facultatives peuvent être complètement omises. Lignes et colonnes peuvent être vides pour faciliter la lecture du classeur, mais les données situées aprés 20 ligne ou colonnes vides successives seront ignorées. Tout formatage du fichier .xls sera ignoré. Vous pouvez donc utiliser des lignes de séparation, des ombres et autres formats de police pour faciliter la lecture de votre formulaire.
 
-Une chose à avoir en tête lorsque vous crééz un formualire est que votre syntaxe doit être précise. Par exemple si vous écrivez **Choices** ou **choice** en lieu et place de **choices**, le formulaire ne fonctionnera pas.
+Une chose à avoir en tête lorsque vous créez un formulaire est que votre syntaxe doit être précise. Par exemple si vous écrivez **Choices** ou **choice** en lieu et place de **choices**, le formulaire ne fonctionnera pas.
 
 ## Types de questions
 XLSForm supports a number of question types. These are just some of the options you can enter in the **type** column in the **survey** worksheet in your XLSForm:
