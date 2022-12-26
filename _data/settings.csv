@@ -1,10 +1,10 @@
-Item::en,Description::en,Enketo?,Collect?,Synonyms,Notes::en
-,,,,,
-form_title,"Title displayed at beginning of form, in form list",✔,✔,,if missing assigned to form_id
-form_id,ID used in the XML and often needs to be unique,✔,✔,,If missing assigned to xls name
-public_key,Key required for encrypted forms,✔,✔,,
-submission_url,"Specific URL for uploading data, overrides default",✕,✔,,
-default_language,"If form uses multiple languages, this one sets which to use by default",✔,✔,,
-style,Separate questions groups into pages (on Enketo). Switch to a different theme.,✔,✕,,"Allowed values: pages, theme-grid, theme-formhub"
-version,,✔,✔,,
-instance_name,Allows user to create a dynamic naming convention for each submitted instance,✔,✔,,"for example, concat(${lname}, ‘-‘, ${fname}, ‘-‘, uuid())"
+Item::en,Description::en,Enketo?,Collect?,Synonyms,Notes::en,Item::fr,Description::fr,Notes::fr
+,,,,,,,,
+form_title,"Title displayed at beginning of form, in form list",✔,✔,,if missing assigned to form_id,form_title,"Titre affiché en tête du formulaire, et dans la liste des fromulaires",Remplacé par form_id si non renseigné
+form_id,ID used in the XML and often needs to be unique,✔,✔,,If missing assigned to xls name,form_id,ID utilisé dans le XML qui nécessite souvent d’être unique,Remplacé par le nom du fichier xlsx si non renseigné
+public_key,Key required for encrypted forms,✔,✔,,,public_key,Clé requise pour les formulaires chiffrés,
+submission_url,"Specific URL for uploading data, overrides default",✕,✔,,,submission_url,"URL spécifique à utiliser pour l’envoi de données, remplace la valeur par défaut",
+default_language,"If form uses multiple languages, this one sets which to use by default",✔,✔,,,default_language,"Si le formualire utilise plusieurs langues, ce paramètre définit celle utilisée par défaut",
+style,Separate questions groups into pages (on Enketo). Switch to a different theme.,✔,✕,,"Allowed values: pages, theme-grid, theme-formhub",style,Sépare les groupes de questions dans des pages (sur Enketo). Changer pour un thème différent.,"Valeurs autorisées : pages, theme-grid, theme-formhub"
+version,,✔,✔,,,version,,
+instance_name,Allows user to create a dynamic naming convention for each submitted instance,✔,✔,,"for example, concat(${lname}, ‘-‘, ${fname}, ‘-‘, uuid())",instance_name,Permet à l’utilisateur de créer une règle de nommage dynamique pour chaque instance soumise,"par exemple, concat(${lname}, ‘-‘, ${fname}, ‘-‘, uuid())"
