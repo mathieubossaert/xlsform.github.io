@@ -3,56 +3,53 @@ ref: home
 lang: fr
 ---
 
-## What is an XLSForm?
+## Qu'est-ce-que XLSForm?
+XLSForm est une norme de formulaire créée pour simplifier la création de formulaires dans Excel. La création se fait dans un format lisible par l'homme, à l'aide d'un outil familier que presque tout le monde connaît : Excel. XLSForms constitue une norme pratique pour le partage et la collaboration en matière de création de formulaires. Ils sont simples à utiliser pour commencer, mais permettent la création de formulaires complexes par une personne familère avec la syntaxe décrite ci-dessous.
 
-XLSForm is a form standard created to help simplify the authoring of forms in Excel.  Authoring is done in a human readable format using a familiar tool that almost everyone knows - Excel.  XLSForms provide a practical standard for sharing and collaborating on authoring forms.  They are simple to get started with but allow for the authoring of complex forms by someone familiar with the syntax described below.
+Le XLSForm est ensuite converti en [XForm ODK](https://getodk.github.io/xforms-spec/), un standard de formulaire ouvert populaire, qui vous permet de créer un formulaire avec des fonctionnalités complexes, comme la logique de saut, de manière cohérente sur diverses plateformes de collecte de données web et mobiles.
 
-The XLSForm is then converted to an [ODK XForm](https://getodk.github.io/xforms-spec/), a popular open form standard, that allows you to author a form with complex functionality like skip logic in a consistent way across a number of web and mobile data collection platforms. 
+## Format basique
+Chaque classeur Excel comporte généralement deux feuilles de calcul : **survey** and **choices**. Une troisième feuille de calcul optionnelle appelée **settings** permet d'ajouter d'autres spécifications à votre formulaire. Elle est décrite ci-dessous.
 
-## Basic format
-Each Excel workbook usually has two worksheets: **survey** and **choices**. A third optional worksheet called **settings** can add additional specifications to your form and is described below. 
+### La feuille de calcul survey
+Cette feuille de calcul décrit la structure générale de votre formulaire et la grande majorité de son contenu. Elle contient la liste complète des questions et les informations sur la façon dont elles doivent apparaître dans le formulaire. Chaque ligne représente généralement une question ; toutefois, il existe certaines autres caractéristiques décrites ci-dessus que vous pouvez ajouter au formulaire pour améliorer l'expérience de l'utilisateur.
 
-### The survey worksheet
-This worksheet gives your form its overall structure and contains most of the content of the form. It contains the full list of questions and information about how they should appear in the form. Each row usually represents one question; however, there are certain other features described below that you can add to the form to improve the user experience.
+### La feuille de calcul choices
+Cette feuille de calcul est utilisée pour spécifier les listes de choix possibles pour les questions à choix simple ou multiples. Chaque ligne représente un choix de réponse. Les choix de réponse ayant le même **list name** sont considérés comme faisant partie d'un même ensemble de choix et apparaissent ensemble pour une question. Les listes de choix peuvent être réutilisées pour plusieurs questions (par exemple, les questions oui/non).
 
-### The choices worksheet
-This worksheet is used to specify the answer choices for multiple choice questions. Each row represents an answer choice. Answer choices with the same **list name** are considered part of a related set of choices and will appear together for a question. This also allows a set of choices to be reused for multiple questions (for example, yes/no questions).
+Ces deux feuilles de calcul comportent un ensemble de colonnes obligatoires qui doivent être présentes pour que le formulaire fonctionne. Elles possèdent en outre un ensemble de colonnes facultatives qui permettent de mieux contrôler le comportement de chaque entrée du formulaire. Chaque entrée doit avoir des valeurs pour chacune des colonnes obligatoires, mais les colonnes facultatives peuvent être laissées vides.
 
-Both of these worksheets have a set of mandatory columns that must be present for the form to work. Additionally, each worksheet has a set of optional columns that allow further control over the behavior of each entry in the form, but are not essential to have. Every entry must have values for each of the mandatory columns, but the optional columns may be left blank.
-
-* The **survey** worksheet has 3 mandatory columns: **type**, **name**, and **label**.
-  * The **type** column specifies the type of entry you are adding.
-  * The **name** column specifies the unique variable name for that entry. No two entries can have the same name. Names have to start with a letter or an underscore. Names can only contain letters, digits, hyphens, underscores, and periods. Names are case-sensitive.
-  * The **label** column contains the actual text you see in the form. Alternatively, [label translation columns](#multiple-language-support) can be used.
+* La feuille **survey** a 3 colonnes obligatoires : **type**, **name**, and **label**.
+  * La colonne **type** spécifie le type de question que vous ajoutez.
+  * La colonne **name** spécifie le nom unique de chaque question. Deux questions ne peuvent pas avoir le même nom. Les noms doivent débuter par une lettre ou un _underscore_. Les noms ne peuvent contenir que des lettres, des chiffres, des traits d'union, des _underscore_ et des points. Les noms sont sensibles à la casse.
+  * La colonne **label** contient le texte affiché dans le formulaire. Il est également possible d'utiliser des [colonnes de labels traduits](#multiple-language-support).
 
 | type                | name     | label                |
-| ------------------- | -------- | -------------------- |
+|---------------------|----------|----------------------|
 | today               | today    |                      |
-| select_one gender   | gender   | Respondent's gender? |
-| integer             | age      | Respondent's age?    |
+| select_one genre    | genre    | Genre du répondant ? |
+| integer             | age      | Age du répondant ?   |
 | =================== | ======== | ==================== |
 | survey              |          |                      |
 
-* The **choices** worksheet has 3 mandatory columns as well: **list name**, **name**, and **label**.
-  * The **list name** column lets you group together a set of related answer choices, i.e., answer choices that should appear together under a question.
-  * The **name** column specifies the unique variable name for that answer choice.
-  * The **label** column shows the answer choice exactly as you want it to appear on the form. Alternatively, [label translation columns](#multiple-language-support) can be used.
+* La feuille **choices** a 3 colonnes obligatoires aussi : **list name**, **name**, and **label**.
+  * La colonne **list name** vous permets de définir le nom de la liste de choix qui regroupera un ensemble de réponses possibles, par exemple ceux qui doivent apparaitre sous une certaine question
+  * La colonne **name** spécifie le nom unique de chaque entrée de la liste de choix.
+  * La colonne **label** contient le texte qui sera affiché dans le formulaire pour chaque entrée de la liste de choix.  Il est également possible d'utiliser des [colonnes de labels traduits](#multiple-language-support).
 
-| list_name           | name        | label                |
-| ------------------- | ----------- | -------------------- |
-| gender              | transgender | Transgender          |
-| gender              | female      | Female               |
-| gender              | male        | Male                 |
-| gender              | other       | Other                |
-| =================== | ========    | ==================== |
-| choices             |             |                      |
+| list_name           | name       | label                |
+|---------------------|------------|----------------------|
+| genre               | transgenre | transgenre           |
+| genre               | femme      | Femme                |
+| genre               | homme      | Homme                |
+| genre               | autre      | Autre                |
+| =================== | ========   | ==================== |
+| choices             |            |                      |
+Les colonnes que vous ajoutez à votre classeur Excel, qu'elles soient obligatoire ou optionnelles, peuvent apparaitre dans n'importe quel ordre. Les colonnes facultatives peuvent être complètement omises. Lignes et colonnes peuvent être vides pour faciliter la lecture du classeur, mais les données situées aprés 20 ligne ou colonnes vides successives seront ignorées. Tout formatage du fichier .xls sera ignoré. Vous pouvez donc utiliser des lignes de séparation, des ombres et autres formats de police pour faciliter la lecture de votre formulaire.
 
-The columns you add to your Excel workbook, whether they are mandatory or optional, may appear in any order. Optional columns may be left out completely. Rows or columns may be left blank to aid readability, but data after 20 adjacent blank columns or rows on a sheet will not be processed. All .xls file formatting is ignored, so you can use dividing lines, shading, and other font formatting to make the form more readable.
+Une chose à avoir en tête lorsque vous crééz un formualire est que votre syntaxe doit être précise. Par exemple si vous écrivez **Choices** ou **choice** en lieu et place de **choices**, le formulaire ne fonctionnera pas.
 
-One thing to keep in mind when authoring forms in Excel is that the syntax you use must be precise. For example, if you write **Choices** or **choice** instead of **choices**, the form won't work.
-
-
-## Question types
+## Types de questions
 XLSForm supports a number of question types. These are just some of the options you can enter in the **type** column in the **survey** worksheet in your XLSForm:
 
 | Question type             | Answer input                                                                                 |
@@ -88,7 +85,7 @@ XLSForm supports a number of question types. These are just some of the options 
 For example, to collect the name and GPS coordinates of a store, you would write the following:
 
 | type       | name         | label                                        |
-| ---------- | ------------ | -------------------------------------------- |
+|------------|--------------|----------------------------------------------|
 | text       | store_name   | What is the name of this store?              |
 | geopoint   | store_gps    | Collect the GPS coordinates of this store.   |
 | ========== | ============ | ============================================ |
@@ -96,12 +93,13 @@ For example, to collect the name and GPS coordinates of a store, you would write
 
 To collect a line or shape of GPS coordinates, you can use one of the following:
 
-| type       | name         | label   | hint                                                                           |
-| ---------- | ------------ | ---------------------------------------------------------------------------------------  |
-| geotrace   | pipe         | Pipeline| Please walk along the pipeline and record the coordinates of each corner point |
+
+| type       | name         | label   | hint   |
+|------------|--------------|---------|--------|
+| geotrace   | pipe         | Pipeline | Please walk along the pipeline and record the coordinates of each corner point |
 | geoshape   | border       | Border  | Please walk along the border and record the coordinates of each corner point   |
-| ========== | ============ | ======================================================================================== |
-| survey     |              |         |                                                                                |
+| ========== | ============ | ======= | ======= |
+| survey     |              |         |         |
 
 See the [question_types XLSForm](https://docs.google.com/spreadsheets/d/1P4roHU0iC_Xx0028oKK656FvH4MBWecIw-HJ7JRwrYs/edit?usp=sharing) for a look at each question type being used in a form.
 
@@ -129,7 +127,6 @@ XLSForm supports both **select_one** (select only one answer) and **select_multi
 | ============      | ============= | ========================= |
 | survey            |               |                           |
 
-<p/>
 
 | list name    | name        | label    |
 | ------------ | ----------- | -------- |
@@ -148,7 +145,6 @@ We can also add multiple choice questions that allow multiple answers to be sele
 | ===========================    | ============      | =========================================== |
 | survey                         |                   |                                             |
 
-<p/>
 
 | list name      | name          | label                     |
 | -------------- | ------------- | ------------------------- |
@@ -181,7 +177,6 @@ For multiple choice questions, surveys often include an option of marking **othe
 | ===========================             | ============     | =========================================== |
 | survey                                  |                  |                                             |
 
-<p/>
 
 | list name      | name       | label                     |
 | -------------- | ---------- | ------------------------- |
@@ -246,7 +241,6 @@ The rank widget can be used to let respondents order a list of options. The answ
 | ======================= | ============     | ============================================= |
 | survey                  |                  |                                               |
 
-<p/>
 
 | list name      | name       | label                     |
 | -------------- | ---------- | ------------------------- |
@@ -450,7 +444,6 @@ In the next example, below, we use relevant syntax for a **select_multiple** que
 | ======================================= | ================ | ===================================== | ===================                     |
 | survey                                  |                  |                                       |                                         |
 
-<p/>
 
 | list name      | name         | label     |
 | -------------- | ------------ | --------- |
@@ -471,7 +464,6 @@ Earlier we mentioned there was an alternative method for specifying other for mu
 | =============================  | ==================      | =====================================  | ======================================= |
 | survey                         |                         |                                        |                                         |
 
-<p/>
 
 | list name           | name       | label               |
 | ------------------- | ---------- | ------------------- |
@@ -676,7 +668,6 @@ A user can repeat questions by using the **begin repeat** and **end repeat** con
  | =================      | ========     | ==================  |
  | survey                 |              |                     |
 
-<p/>
 
 | list name           | name        | label       |
 | ------------------- | ----------- | ----------- |
@@ -748,7 +739,6 @@ Like [with groups](#skipping), all of the questions in a repeat can be skipped b
  | =================      | ========     | ========================== | =================== |
  | survey                 |              |                            |                     |
 
-<p/>
 
  | list_name    | name        | label    |
  | ------------ | ----------- | -------- |
@@ -1120,7 +1110,6 @@ The **settings** sheet has support for defining (multiple space-separated) addit
 | ========= | ============================================================ |
 | settings  |                                                              |
 
-<p/>
 
 | type      | name         | label                    | bind::esri:fieldLength | bind::enk:for |
 | --------- | ------------ | ------------------------ | ---------------------- | ------------- |
