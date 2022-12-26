@@ -1,7 +1,7 @@
-Item::en,Description::en,Enketo?,Collect?,Synonyms,Notes::en
-,,,,,
-list name,A unique name for each set of choices,✔,✔,list_name,
-name,"ID (name) of the specific choice, will be saved to XML",✔,✔,,
-label::[language],"Choice label, will be displayed on screen. Allows adding a translation of choice labels, showing [language] in the interface",✔,✔,label::[language],
-media,,✔,✔,,optional
-[filter_category_name],Allows setting a specific parent category for choice filters (cascading questions),✔,✔,,"Column name is specified by user, e.g. ‘country’"
+Item::en,Description::en,Enketo?,Collect?,Synonyms,Notes::en,Item::fr,Description::fr,Notes::fr
+,,,,,,,,
+list name,A unique name for each set of choices,✔,✔,list_name,,list name,Un nom unique pour chaque ensemble de choix,
+name,"ID (name) of the specific choice, will be saved to XML",✔,✔,,,name,"ID (nom) du choix spécifique, qui sera sauvegardé dans le XML",
+label::[language],"Choice label, will be displayed on screen. Allows adding a translation of choice labels, showing [language] in the interface",✔,✔,label::[language],,label::[langue],"L’étiquette du choix, qui sera affichée à l’écran. Permet d’ajouter une traduction des étiquettes, en affichant celle de la [langue] dans l’interface",
+media,,✔,✔,,optional,media,,optionnel
+[filter_category_name],Allows setting a specific parent category for choice filters (cascading questions),✔,✔,,"Column name is specified by user, e.g. ‘country’",[nom_de_la_categorie_de_filtre],Permet de définir une catégorie supérieure spécifique pour les filtres de choix (questions en cascade),"Le nom de la colonne est défini par l’utilisateur, par ex. ‘pays’."
