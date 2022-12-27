@@ -46,41 +46,41 @@ Ces deux feuilles de calcul comportent un ensemble de colonnes obligatoires qui 
 | =================== | ========   | ==================== |
 | choices             |            |                      |
 
-Les colonnes que vous ajoutez à votre classeur Excel, qu'elles soient obligatoire ou optionnelles, peuvent apparaitre dans n'importe quel ordre. Les colonnes facultatives peuvent être complètement omises. Lignes et colonnes peuvent être vides pour faciliter la lecture du classeur, mais les données situées aprés 20 ligne ou colonnes vides successives seront ignorées. Tout formatage du fichier .xls sera ignoré. Vous pouvez donc utiliser des lignes de séparation, des ombres et autres formats de police pour faciliter la lecture de votre formulaire.
+Les colonnes que vous ajoutez à votre classeur Excel, qu'elles soient obligatoire ou optionnelles, peuvent apparaître dans n'importe quel ordre. Les colonnes facultatives peuvent être complètement omises. Lignes et colonnes peuvent être vides pour faciliter la lecture du classeur, mais les données situées aprés 20 ligne ou colonnes vides successives seront ignorées. Tout formatage du fichier .xls sera ignoré. Vous pouvez donc utiliser des lignes de séparation, des ombres et autres formats de police pour faciliter la lecture de votre formulaire.
 
 Une chose à avoir en tête lorsque vous créez un formulaire est que votre syntaxe doit être précise. Par exemple si vous écrivez **Choices** ou **choice** en lieu et place de **choices**, le formulaire ne fonctionnera pas.
 
 ## Types de questions
-XLSForm supports a number of question types. These are just some of the options you can enter in the **type** column in the **survey** worksheet in your XLSForm:
+XLSForm supporte de nombreux types de question. Celles-ci sont quelques-unes des options que vous pouvez utiliser dans la colonne **type** de la feuille **survey** de votre XLSForm :
 
-| Question type             | Answer input                                                                                 |
-| ------------------------- | -------------------------------------------------------------------------------------------- |
-| integer                   | Integer (i.e., whole number) input.                                                          |
-| decimal                   | Decimal input.                                                                               |
-| range                     | [Range](#range) input (including rating)                                                     |
-| text                      | Free text response.                                                                          |
-| select_one [options]      | [Multiple choice](#multiple-choice) question; only one answer can be selected.               |
-| select_multiple [options] | [Multiple choice](#multiple-choice) question; multiple answers can be selected.              |
-| select_one_from_file [file]| [Multiple choice from file](#multiple-choice-from-file); only one answer can be selected.      |
-| select_multiple_from_file [file]| [Multiple choice from file](#multiple-choice-from-file); multiple answers can be selected.|
-| rank [options]            | [Rank](#rank) question; order a list.                                                        |
-| note                      | Display a note on the screen, takes no input. Shorthand for type=text with readonly=true.    |
-| geopoint                  | Collect a [single GPS coordinate](#gps).                                                     |
-| geotrace                  | Record a [line of two or more GPS coordinates](#gps).                                                |
-| geoshape                  | Record a [polygon of multiple GPS coordinates](#gps); the last point is the same as the first point. |
-| date                      | Date input.                                                                                  |
-| time                      | Time input.                                                                                  |
-| dateTime                  | Accepts a date and a time input.                                                             |
-| image                     | Take a picture or upload an [image file](#image).                                            |
-| audio                     | Take an audio recording or upload an audio file.                                             |
-| background-audio          | Audio is recorded in the background while filling the form.                                  |
-| video                     | Take a video recording or upload a video file.                                               |
-| file                      | Generic file input (txt, pdf, xls, xlsx, doc, docx, rtf, zip)                                |
-| barcode                   | Scan a barcode, requires the barcode scanner app to be installed.                            |
-| calculate                 | Perform a calculation; see the [Calculation](#calculation) section below.                    |
-| acknowledge               | Acknowledge prompt that sets value to "OK" if selected.                                      |
-| hidden                    | A field with no associated UI element which can be used to store a constant                  |
-| xml-external              | Adds a reference to an [external XML data](#external-xml-data) file                          |
+| Type de question                 | Type de réponse                                                                                                                |
+|----------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| integer                          | Saisie d'un entier                                                                                                             |
+| decimal                          | Saisie d'un nombre décimal                                                                                                     |
+| range                            | Saisie d'un [Intervalle](#range) input (inclue la notation)                                                                    |
+| text                             | Saisie d'un texte libre                                                                                                        |
+| select_one [options]             | Question à [Choix multiples](#multiple-choice) ; une seule réponse possible.                                                   |
+| select_multiple [options]        | Question à [Choix multiples](#multiple-choice) ; plusieurs réponses possibles.                                                 |
+| select_one_from_file [file]      | [Choix multiples depuis un fichier](#multiple-choice-from-file); une seule réponse peut être sélectionnée.                     |
+| select_multiple_from_file [file] | [Choix multiples depuis un fichier](#multiple-choice-from-file); plusieurs réponses peuvent être sélectionnées.                |
+| rank [options]                   | [Rang](#rank) ; ordonner une liste.                                                                                            |
+| note                             | Affiche une note à l'écran, n'attend pas de saisie. Raccourci pour une question de type text en lecture seule (readonly=true). |
+| geopoint                         | Collect a [single GPS coordinate](#gps).                                                                                       |
+| geotrace                         | Record a [line of two or more GPS coordinates](#gps).                                                                          |
+| geoshape                         | Record a [polygon of multiple GPS coordinates](#gps); the last point is the same as the first point.                           |
+| date                             | Date input.                                                                                                                    |
+| time                             | Time input.                                                                                                                    |
+| dateTime                         | Accepts a date and a time input.                                                                                               |
+| image                            | Take a picture or upload an [image file](#image).                                                                              |
+| audio                            | Take an audio recording or upload an audio file.                                                                               |
+| background-audio                 | Audio is recorded in the background while filling the form.                                                                    |
+| video                            | Take a video recording or upload a video file.                                                                                 |
+| file                             | Generic file input (txt, pdf, xls, xlsx, doc, docx, rtf, zip)                                                                  |
+| barcode                          | Scan a barcode, requires the barcode scanner app to be installed.                                                              |
+| calculate                        | Perform a calculation; see the [Calculation](#calculation) section below.                                                      |
+| acknowledge                      | Acknowledge prompt that sets value to "OK" if selected.                                                                        |
+| hidden                           | A field with no associated UI element which can be used to store a constant                                                    |
+| xml-external                     | Adds a reference to an [external XML data](#external-xml-data) file                                                            |
 
 ### GPS
 For example, to collect the name and GPS coordinates of a store, you would write the following:
