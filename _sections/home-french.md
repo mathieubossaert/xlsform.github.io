@@ -61,26 +61,26 @@ XLSForm supporte de nombreux types de question. Celles-ci sont quelques-unes des
 | text                             | Saisie d'un texte libre                                                                                                        |
 | select_one [options]             | Question à [Choix multiples](#multiple-choice) ; une seule réponse possible.                                                   |
 | select_multiple [options]        | Question à [Choix multiples](#multiple-choice) ; plusieurs réponses possibles.                                                 |
-| select_one_from_file [file]      | [Choix multiples depuis un fichier](#multiple-choice-from-file); une seule réponse peut être sélectionnée.                     |
-| select_multiple_from_file [file] | [Choix multiples depuis un fichier](#multiple-choice-from-file); plusieurs réponses peuvent être sélectionnées.                |
-| rank [options]                   | [Rang](#rank) ; ordonner une liste.                                                                                            |
+| select_one_from_file [file]      | [Choix multiples depuis un fichier](#multiple-choice-from-file) ; une seule réponse peut être sélectionnée.                    |
+| select_multiple_from_file [file] | [Choix multiples depuis un fichier](#multiple-choice-from-file) ; plusieurs réponses peuvent être sélectionnées.               |
+| rank [options]                   | [Rang](#rank) ; permet d'ordonner une liste.                                                                                   |
 | note                             | Affiche une note à l'écran, n'attend pas de saisie. Raccourci pour une question de type text en lecture seule (readonly=true). |
-| geopoint                         | Collect a [single GPS coordinate](#gps).                                                                                       |
-| geotrace                         | Record a [line of two or more GPS coordinates](#gps).                                                                          |
-| geoshape                         | Record a [polygon of multiple GPS coordinates](#gps); the last point is the same as the first point.                           |
-| date                             | Date input.                                                                                                                    |
-| time                             | Time input.                                                                                                                    |
-| dateTime                         | Accepts a date and a time input.                                                                                               |
-| image                            | Take a picture or upload an [image file](#image).                                                                              |
-| audio                            | Take an audio recording or upload an audio file.                                                                               |
-| background-audio                 | Audio is recorded in the background while filling the form.                                                                    |
-| video                            | Take a video recording or upload a video file.                                                                                 |
-| file                             | Generic file input (txt, pdf, xls, xlsx, doc, docx, rtf, zip)                                                                  |
-| barcode                          | Scan a barcode, requires the barcode scanner app to be installed.                                                              |
-| calculate                        | Perform a calculation; see the [Calculation](#calculation) section below.                                                      |
-| acknowledge                      | Acknowledge prompt that sets value to "OK" if selected.                                                                        |
-| hidden                           | A field with no associated UI element which can be used to store a constant                                                    |
-| xml-external                     | Adds a reference to an [external XML data](#external-xml-data) file                                                            |
+| geopoint                         | Collecte les [coordonnées GPS d'un point](#gps).                                                                               |
+| geotrace                         | Enregistre une [ligne composée d'au moins deux points GPS](#gps).                                                              |
+| geoshape                         | Enregistre un [polygone composée de plusieurs points GPS](#gps) ; le dernier est le même que le premier.                       |
+| date                             | Saisie d'une date.                                                                                                             |
+| time                             | Saisie d'une heure.                                                                                                            |
+| dateTime                         | Accepte la saisie d'une date et d'une heure.                                                                                   |
+| image                            | Prend une photo et envoie un [fichier image](#image).                                                                          |
+| audio                            | Enregistre un son et envoie un fichier audio.                                                                                  |
+| background-audio                 | Le son est enregistré en arrière-plan durant le remplissage du formulaire.                                                     |
+| video                            | Enregistre une vidéo et envoie un fichier vidéo.                                                                               |
+| file                             | Entrée d'un fichier générique (txt, pdf, xls, xlsx, doc, docx, rtf, zip)                                                       |
+| barcode                          | Scan un code barre, requiert l'installation de l'application scanner de barcode.                                               |
+| calculate                        | Réalise un calcul, voir ci-dessous la section de la documentation relative au calcul(#calculation).                            |
+| acknowledge                      | Un avertissement qui définit la valeur à "OK" s'il est sélectionné.                                                            |
+| hidden                           | Un champ sans affichage associé qui peut être utilisé pour stocker une constante                                               |
+| xml-external                     | Ajoute une référence à un [fichier xml externe de données](#external-xml-data) file                                            |
 
 ### GPS
 For example, to collect the name and GPS coordinates of a store, you would write the following:
