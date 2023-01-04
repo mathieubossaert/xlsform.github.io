@@ -83,26 +83,26 @@ XLSForm supporte de nombreux types de question. Celles-ci sont quelques-unes des
 | xml-external                     | Ajoute une référence à un [fichier xml externe de données](#external-xml-data) file                                            |
 
 ### GPS
-For example, to collect the name and GPS coordinates of a store, you would write the following:
+Par exemple, poulr collecter le nomet les coordonnées GPS d'un magasin, vous pourriez écriue ceci :
 
-| type       | name         | label                                        |
-|------------|--------------|----------------------------------------------|
-| text       | store_name   | What is the name of this store?              |
-| geopoint   | store_gps    | Collect the GPS coordinates of this store.   |
-| ========== | ============ | ============================================ |
-| survey     |              |                                              |
+| type       | name         | label                                          |
+|------------|--------------|------------------------------------------------|
+| text       | store_name   | Quel est le nom du magasin ?                   |
+| geopoint   | store_gps    | Collecter les coordonnées GPS de ce magasin.   |
+| ========== | ============ | ============================================== |
+| survey     |              |                                                |
 
-To collect a line or shape of GPS coordinates, you can use one of the following:
+POur collecter un ligne ou un polygone composés de coordonnées GPS, vous pouvez utiliser l'un des types de question suivants :
 
 
 | type       | name         | label   | hint   |
 |------------|--------------|---------|--------|
-| geotrace   | pipe         | Pipeline | Please walk along the pipeline and record the coordinates of each corner point |
-| geoshape   | border       | Border  | Please walk along the border and record the coordinates of each corner point   |
+| geotrace   | pipe         | Pipeline | Merci de marcher le long du pipeline et d'enregistrer les coordonnées de chaque coin |
+| geoshape   | border       | Border  | Merci de suivre le contour de la bordure et d'enregistrer les coordonnées de chaque coi |
 | ========== | ============ | ======= | ======= |
 | survey     |              |         |         |
 
-See the [question_types XLSForm](https://docs.google.com/spreadsheets/d/1P4roHU0iC_Xx0028oKK656FvH4MBWecIw-HJ7JRwrYs/edit?usp=sharing) for a look at each question type being used in a form.
+Consultez les [ce XLSForm](https://docs.google.com/spreadsheets/d/1P4roHU0iC_Xx0028oKK656FvH4MBWecIw-HJ7JRwrYs/edit?usp=sharing) pour voir chacun de ces types de questions utilisés dans un formulaire.
 
 ### GPS with accuracyThreshold
 
