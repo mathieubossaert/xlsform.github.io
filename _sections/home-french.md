@@ -83,7 +83,7 @@ XLSForm supporte de nombreux types de question. Celles-ci sont quelques-unes des
 | xml-external                     | Ajoute une référence à un [fichier xml externe de données](#external-xml-data) file                                            |
 
 ### GPS
-Par exemple, poulr collecter le nomet les coordonnées GPS d'un magasin, vous pourriez écriue ceci :
+Par exemple, poulr collecter le nomet les coordonnées GPS d'un magasin, vous pourriez écrire ceci :
 
 | type       | name         | label                                          |
 |------------|--------------|------------------------------------------------|
@@ -92,7 +92,7 @@ Par exemple, poulr collecter le nomet les coordonnées GPS d'un magasin, vous po
 | ========== | ============ | ============================================== |
 | survey     |              |                                                |
 
-POur collecter un ligne ou un polygone composés de coordonnées GPS, vous pouvez utiliser l'un des types de question suivants :
+Pour collecter un ligne ou un polygone composés de coordonnées GPS, vous pouvez utiliser l'un des types de question suivants :
 
 
 | type       | name         | label   | hint   |
@@ -104,18 +104,17 @@ POur collecter un ligne ou un polygone composés de coordonnées GPS, vous pouve
 
 Consultez les [ce XLSForm](https://docs.google.com/spreadsheets/d/1P4roHU0iC_Xx0028oKK656FvH4MBWecIw-HJ7JRwrYs/edit?usp=sharing) pour voir chacun de ces types de questions utilisés dans un formulaire.
 
-### GPS with accuracyThreshold
+### GPS avec seuil de précision (accuracyThreshold)
 
-When recording GPS coordinates in ODK Collect, ODK collect automatically collects the gps when an accuracy level of 5 meters or less is reached. You can change this default behaviour by specifying an **accuracyThreshold**; this could be less than 5m or more than 5m. You will need to add a column with heading **body::accuracyThreshold** on the survey sheet of your XLSForm. Then specify your preferred accuracy threshold value for this column on your geopoint question, as in the example shown below:
+En enregistrant la position du GPS dans ODK Collect, ce dernier enregistre par défaut (si aucune "appearence" n'est spécifiée) la localisation du GPS quand une précision de 5 metres ou moins est atteient. Vous pouvez changer ce comportement par défaut en spécifiant le seuil souhaité seuil de précision (**accuracyThreshold**) ; cela peut être inférieur ou supérieur à 5m. Vous devrez ajouter à la feuille **survey** une colonne avec l'entête **accuracyThreshold**. Et y spécifier la valeur souhaitée pour votre question geopoint, comme dans l'exemple ci-desous :
 
 | type       | name         | label                                       | body::accuracyThreshold   |
-| ---------- | ------------ | ------------------------------------------- | ------------------------- |
+| ---------- | ------------ | ------------------------------------------- | ------------------------- | 
 | geopoint   | store_gps    | Collect the GPS coordinates of this store.  | 1.5                       |
 | ========== | ============ | =========================================== | ========================= |
 | survey     |              |                                             |                           |
 
-See [gps_accuracy_threshold](https://docs.google.com/spreadsheets/d/1kdV-UF65WONU251Zh7ngdPiQ_VrEKTNmgOHyNonSsGw/edit?usp=sharing) form for an example that uses this attribute.
-
+Voir cet [exemple de formualaire](https://docs.google.com/spreadsheets/d/1kdV-UF65WONU251Zh7ngdPiQ_VrEKTNmgOHyNonSsGw/edit?usp=sharing) pour l'usage de cet attribut.
 
 ### Multiple choice
 
